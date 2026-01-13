@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5th Grade Math Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>5th Grade Math Test</h1>
+            <p class="subtitle">Answer each question carefully. You'll get one hint if needed!</p>
+        </header>
+
+        <div id="studentInfo" class="section">
+            <h2>Student Information</h2>
+            <label for="studentName">Your Name:</label>
+            <input type="text" id="studentName" placeholder="Enter your full name" required>
+            <button id="startTest" onclick="startTest()">Start Test</button>
+        </div>
+
+        <div id="testContainer" style="display: none;">
+            <div id="progressBar">
+                <div id="progressFill"></div>
+                <span id="progressText">Question 1 of 26</span>
+            </div>
+
+            <form id="mathTest">
+                <!-- Question 1: Block Volume -->
+                <div class="question" data-question="1">
+                    <h3>Question 1</h3>
+                    <p>Matt makes a tower using two blocks.</p>
+                    <ul>
+                        <li>The combined volume of Block A and Block B is 1600 cubic inches.</li>
+                        <li>The length of Block A is 10 inches.</li>
+                        <li>The height of Block A is 12 inches.</li>
+                        <li>The width of Block B is 8 inches.</li>
+                    </ul>
+                    <p><strong>Enter the volume, in cubic inches, of Block B.</strong></p>
+                    <input type="number" name="q1" class="answer-input" data-correct="400" data-hint="First find the width of Block A using V = l × w × h. Volume of A = 10 × w × 12 = 1200, so w = 10. Then Volume of B = 1600 - 1200 = 400">
+                    <div class="feedback"></div>
+                </div>
+
+                <!-- Question 2: Picture Frame -->
+                <div class="question" data-question="2">
+                    <h3>Question 2</h3>
+                    <p>The inside of a rectangular picture frame measures 8.5 inches by 11 inches.</p>
+                    <p><strong>Determine if the rectangular picture sizes in the table could fit inside the picture frame. Select Yes or No for each picture size.</strong></p>
+                    <div class="table-question">
+                        <table>
+                            <tr>
+                                <th>Picture Size</th>
+                                <th>Yes</th>
+                                <th>No</th>
+                            </tr>
+                            <tr>
+                                <td>7.5 in by 12 in</td>
+                                <td><input type="radio" name="q2a" value="yes"></td>
+                                <td><input type="radio" name="q2a" value="no"></td>
+                            </tr>
+                            <tr>
+                                <td>8 in by 10.5 in</td>
+                                <td><input type="radio" name="q2b" value="yes"></td>
+                                <td><input type="radio" name="q2b" value="no"></td>
+                            </tr>
+                            <tr>
+                                <td>8.5 in by 11.5 in</td>
+                                <td><input type="radio" name="q2c" value="yes"></td>
+                                <td><input type="radio" name="q2c" value="no"></td>
+                            </tr>
+                            <tr>
+                                <td>9 in by 12.5 in</td>
+                                <td><input type="radio" name="q2d" value="yes"></td>
+                                <td><input type="radio" name="q2d" value="no"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="feedback"></div>
+                    <button type="button" class="check-btn" onclick="checkAnswer(2)">Check Answer</button>
+                </div>
+
+                <!-- Question 3: Rectangular Prism Height -->
+                <div class="question" data-question="3">
+                    <h3>Question 3</h3>
+                    <p>A rectangular prism has a volume of 42 cubic units. The length is 3 units. The width is 2 units. <strong>What is the height?</strong></p>
+                    <div class="multiple-choice">
+                        <label><input type="radio" name="q3" value="6"> A. 6 units</label>
+                        <label><input type="radio" name="q3" value="7"> B. 7 units</label>
+                        <label><input type="radio" name="q3" value="14"> C. 14 units</label>
+                        <label><input type="radio" name="q3" value="21"> D. 21 units</label>
+                    </div>
+                    <div class="feedback"></div>
+                    <button type="button" class="check-btn" onclick="checkAnswer(3)">Check Answer</button>
+                </div>
+
+                <!-- Question 4: Number Patterns -->
+                <div class="question" data-question="4">
+                    <h3>Question 4</h3>
+                    <p>Patterns S and T are generated using these rules:</p>
+                    <ul>
+                        <li>Pattern S: Start with 2 and multiply by 2.</li>
+                        <li>Pattern T: Start with 2 and add 5.</li>
+                    </ul>
+                    <p><strong>Which set of ordered pairs is generated from corresponding terms of Pattern S and Pattern T?</strong></p>
+                    <div class="multiple-choice">
+                        <label><input type="radio" name="q4" value="a"> A. (2, 5), (4, 10), (8, 15), (16, 20)</label>
+                        <label><input type="radio" name="q4" value="b"> B. (2, 2), (4, 7), (8, 12), (16, 17)</label>
+                        <label><input type="radio" name="q4" value="c"> C. (2, 2), (4, 10), (8, 50), (10, 250)</label>
+                        <label><input type="radio" name="q4" value="d"> D. (2, 2), (4, 7), (6, 12), (8, 17)</label>
+                    </div>
+                    <div class="feedback"></div>
+                    <button type="button" class="check-btn" onclick="checkAnswer(4)">Check Answer</button>
+                </div>
+
+                <!-- Question 5: Shopping Problem -->
+                <div class="question" data-question="5">
+                    <h3>Question 5</h3>
+                    <p>Allie buys 2 packages of napkins and 3 packages of forks for a class party. She gives the store clerk $10.00.</p>
+                    <table>
+                        <tr><th>Item</th><th>Cost per Package</th></tr>
+                        <tr><td>Napkins</td><td>$1.89</td></tr>
+                        <tr><td>Forks</td><td>$1.79</td></tr>
+                    </table>
+                    <p><strong>What is the total amount of money that Allie should receive back from the clerk?</strong></p>
+                    <input type="number" step="0.01" name="q5" class="answer-input" data-correct="2.85" data-hint="Calculate: (2 × $1.89) + (3 × $1.79) = $3.78 + $5.37 = $9.15. Change = $10.00 - $9.15">
+                    <div class="feedback"></div>
+                </div>
+
+                <!-- Question 6: Prism Volume -->
+                <div class="question" data-question="6">
+                    <h3>Question 6</h3>
+                    <p>The edge lengths, in centimeters, of a right rectangular prism are 2, 5, and 7.</p>
+                    <p><strong>Enter the volume, in cubic centimeters, of this prism.</strong></p>
+                    <input type="number" name="q6" class="answer-input" data-correct="70" data-hint="Volume = length × width × height = 2 × 5 × 7">
+                    <div class="feedback"></div>
+                </div>
+
+                <!-- Question 7: Ribbon Division -->
+                <div class="question" data-question="7">
+                    <h3>Question 7</h3>
+                    <p>Pam cuts 75 inches of ribbon into 6 equally-sized pieces with no ribbon left over.</p>
+                    <p><strong>Enter the length, in inches, of each piece of ribbon.</strong></p>
+                    <input type="number" step="0.1" name="q7" class="answer-input" data-correct="12.5" data-hint="Divide 75 by 6: 75 ÷ 6 = ?">
+                    <div class="feedback"></div>
+                </div>
+
+                <!-- Question 8: Multiplication Product -->
+                <div class="question" data-question="8">
+                    <h3>Question 8</h3>
+                    <p><strong>Enter the product:</strong></p>
+                    <p>2684 × 24 = ?</p>
+                    <input type="number" name="q8" class="answer-input" data-correct="64416" data-hint="Break it down: 2684 × 20 = 53,680 and 2684 × 4 = 10,736. Add them together.">
+                    <div class="feedback"></div>
+                </div>
+
+                <!-- Question 9: Fraction of Meter -->
+                <div class="question" data-question="9">
+                    <h3>Question 9</h3>
+                    <p>Briana bought 80/100 of a meter of cloth at the store.</p>
+                    <p><strong>Enter the amount, in meters, of cloth Briana bought as a decimal.</strong></p>
+                    <input type="number" step="0.01" name="q9" class="answer-input" data-correct="0.80" data-hint="80/100 = 0.80 (or 0.8)">
+                    <div class="feedback"></div>
+                </div>
+
+                <!-- Question 10: Decimal Multiplication -->
+                <div class="question" data-question="10">
+                    <h3>Question 10</h3>
+                    <p><strong>Which expression is equal to 1.32 × 2.06?</strong></p>
+                    <div class="multiple-choice">
+                        <label><input type="radio" name="q10" value="a"> A. 1(32/10) × 2(6/10)</label>
+                        <label><input type="radio" name="q10" value="b"> B. (132/10) × (206/10)</label>
+                        <label><input type="radio" name="q10" value="c"> C. (132/100) × (206/100)</label>
+                        <label><input type="radio" name="q10" value="d"> D. 1(32/100) × 2(6/10)</label>
+                    </div>
+                    <div class="feedback"></div>
+                    <button type="button" class="check-btn" onclick="checkAnswer(10)">Check Answer</button>
+                </div>
+
+                <!-- Question 11: Prism with 60 Cubes -->
+                <div class="question" data-question="11">
+                    <h3>Question 11</h3>
+                    <p>Isiah uses exactly 60 cubes to build a rectangular prism. Each cube has side lengths of 1 unit.</p>
+                    <p><strong>Part A: Drag numbers to show the dimensions Isiah could use to make a prism with one side length of 10 units.</strong></p>
+                    <p>Length = 10 units</p>
+                    <p>Width = <input type="number" name="q11a_width" style="width: 60px;"> units</p>
+                    <p>Height = <input type="number" name="q11a_height" style="width: 60px;"> units</p>
+                    
+                    <p><strong>Part B: Drag numbers to show the dimensions Isiah could use to make a prism without any side lengths of 10 units.</strong></p>
+                    <p>Length = <input type="number" name="q11b_length" style="width: 60px;"> units</p>
+                    <p>Width = <input type="number" name="q11b_width" style="width: 60px;"> units</p>
+                    <p>Height = <input type="number" name="q11b_height" style="width: 60px;"> units</p>
+                    <div class="feedback"></div>
+                    <button type="button" class="check-btn" onclick="checkAnswer(11)">Check Answer</button>
+                </div>
+
+                <!-- Question 12: Multiplication Product -->
+                <div class="question" data-question="12">
+                    <h3>Question 12</h3>
+                    <p><strong>Enter the product:</strong></p>
+                    <p>261 × 35 = ?</p>
+                    <input type="number" name="q12" class="answer-input" data-correct="9135" data-hint="261 × 30 = 7,830 and 261 × 5 = 1,305. Add them together.">
+                    <div class="feedback"></div>
+                </div>
+
+                <!-- Question 13: Paper Strips Length -->
+                <div class="question" data-question="13">
+                    <h3>Question 13</h3>
+                    <p>Gordon has paper strips that are all equal in length. He lines them up end to end.</p>
+                    <p>When the line of paper strips is 3 feet long, Gordon says there are 12 paper strips.</p>
+                    <p><strong>What is the length, in feet, of one paper strip if Gordon is correct?</strong></p>
+                    <input type="number" step="0.01" name="q13" class="answer-input" data-correct="0.25" data-hint="Divide 3 feet by 12 strips: 3 ÷ 12 = ?">
+                    <div class="feedback"></div>
+                </div>
+
+                <!-- Question 14: Decimal Comparison -->
+                <div class="question" data-question="14">
+                    <h3>Question 14</h3>
+                    <p><strong>Determine if each comparison is true or false. Select True or False for each comparison.</strong></p>
+                    <table>
+                        <tr>
+                            <th>Comparison</th>
+                            <th>True</th>
+                            <th>False</th>
+                        </tr>
+                        <tr>
+                            <td>8.81 > 8.9</td>
+                            <td><input type="radio" name="q14a" value="true"></td>
+                            <td><input type="radio" name="q14a" value="false"></td>
+                        </tr>
+                        <tr>
+                            <td>11.34 < 11.340</td>
+                            <td><input type="radio" name="q14b" value="true"></td>
+                            <td><input type="radio" name="q14b" value="false"></td>
+                        </tr>
+                        <tr>
+                            <td>7.634 > 7.67</td>
+                            <td><input type="radio" name="q14c" value="true"></td>
+                            <td><input type="radio" name="q14c" value="false"></td>
+                        </tr>
+                    </table>
+                    <div class="feedback"></div>
+                    <button type="button" class="check-btn" onclick="checkAnswer(14)">Check Answer</button>
+                </div>
+
+                <!-- Question 15: Division Quotient -->
+                <div class="question" data-question="15">
+                    <h3>Question 15</h3>
+                    <p><strong>Enter the quotient:</strong></p>
+                    <p>25)7650</p>
+                    <input type="number" name="q15" class="answer-input" data-correct="306" data-hint="Think: 25 × 300 = 7,500. Then 7,650 - 7,500 = 150. And 25 × 6 = 150.">
+                    <div class="feedback"></div>
+                </div>
+
+                <!-- Question 16: Fraction Subtraction -->
+                <div class="question" data-question="16">
+                    <h3>Question 16</h3>
+                    <p><strong>Which set of steps shows a correct way to solve this problem?</strong></p>
+                    <p>Subtracting 2(1/14) - 1(3/7)</p>
+                    <div class="multiple-choice">
+                        <label><input type="radio" name="q16" value="a"> A. (29/14×1) - (3/7×2) = (29/14) - (3/14) = (2/14)</label>
+                        <label><input type="radio" name="q16" value="b"> B. (29×1/14×1) - (3×2/7×2) = (29/14) - (6/14) = (23/14)</label>
+                        <label><input type="radio" name="q16" value="c"> C. More options...</label>
+                    </div>
+                    <div class="feedback"></div>
+                    <button type="button" class="check-btn" onclick="checkAnswer(16)">Check Answer</button>
+                </div>
+
+                <!-- Question 17: Lisa's Claim -->
+                <div class="question" data-question="17">
+                    <h3>Question 17</h3>
+                    <p>Lisa claims that when multiplying any number between 0 and 10 by 100, the product is greater than 100.</p>
+                    <p><strong>What is a possible number that can be multiplied by 100 to show that Lisa's claim is not correct? Enter your answer in the response box.</strong></p>
+                    <input type="number" step="0.01" name="q17" class="answer-input" data-hint="Think of a decimal number less than 1, like 0.5. When 0.5 × 100 = 50, which is less than 100.">
+                    <div class="feedback"></div>
+                </div>
+
+                <!-- Question 18: Multiplication Statement -->
+                <div class="question" data-question="18">
+                    <h3>Question 18</h3>
+                    <p>Sam multiplies a number, n, by a two-digit number.</p>
+                    <p><strong>Which statement is true?</strong></p>
+                    <div class="multiple-choice">
+                        <label><input type="radio" name="q18" value="a"> A. When n is a one-digit number, the product will always have three digits.</label>
+                        <label><input type="radio" name="q18" value="b"> B. When n is a two-digit number, the product will have four or five digits.</label>
+                        <label><input type="radio" name="q18" value="c"> C. When n is a three-digit number, the product will always have four digits.</label>
+                        <label><input type="radio" name="q18" value="d"> D. When n is a four-digit number, the product will have five or six digits.</label>
+                    </div>
+                    <div class="feedback"></div>
+                    <button type="button" class="check-btn" onclick="checkAnswer(18)">Check Answer</button>
+                </div>
+
+                <!-- Question 19: Combined Box Volume -->
+                <div class="question" data-question="19">
+                    <h3>Question 19</h3>
+                    <p>Megan arranges Box A and Box B on her study table.</p>
+                    <ul>
+                        <li>The dimensions of Box A are 10 by 5 by 4 inches.</li>
+                        <li>The dimensions of Box B are 5 by 3 by 4 inches.</li>
+                    </ul>
+                    <p><strong>Enter the combined volume, in cubic inches, of both boxes.</strong></p>
+                    <input type="number" name="q19" class="answer-input" data-correct="260" data-hint="Find volume of each box separately: Box A = 10×5×4 = 200, Box B = 5×3×4 = 60. Add them: 200 + 60">
+                    <div class="feedback"></div>
+                </div>
+
+                <!-- Question 20: Blank Covered by Blanket (Missing from PDF) -->
+                
+                <!-- Question 21: File Cabinet Volume -->
+                <div class="question" data-question="21">
+                    <h3>Question 21</h3>
+                    <p>Jonas has a file cabinet in the shape of a right rectangular prism.</p>
+                    <ul>
+                        <li>The area of the base of the file cabinet is 450 square inches.</li>
+                        <li>The height of the file cabinet is 53 inches.</li>
+                    </ul>
+                    <p><strong>Enter the volume, in cubic inches, of the file cabinet.</strong></p>
+                    <input type="number" name="q21" class="answer-input" data-correct="23850" data-hint="Volume = Base Area × Height = 450 × 53">
+                    <div class="feedback"></div>
+                </div>
+
+                <!-- Question 22: Calculator Error -->
+                <div class="question" data-question="22">
+                    <h3>Question 22</h3>
+                    <p>Chevon is using a calculator to multiply 5426 and 30. He enters 5426 × 300 by mistake.</p>
+                    <p><strong>What can Chevon do to correct his mistake?</strong></p>
+                    <div class="multiple-choice">
+                        <label><input type="radio" name="q22" value="a"> A. add 270 to the product</label>
+                        <label><input type="radio" name="q22" value="b"> B. subtract 270 from the product</label>
+                        <label><input type="radio" name="q22" value="c"> C. multiply the product by 10</label>
+                        <label><input type="radio" name="q22" value="d"> D. divide the product by 10</label>
+                    </div>
+                    <div class="feedback"></div>
+                    <button type="button" class="check-btn" onclick="checkAnswer(22)">Check Answer</button>
+                </div>
+
+                <!-- Question 23: Prism Height Change -->
+                <div class="question" data-question="23">
+                    <h3>Question 23</h3>
+                    <p>The dimensions of a right rectangular prism are:</p>
+                    <ul>
+                        <li>length = 5 inches</li>
+                        <li>width = 4 inches</li>
+                        <li>height = 7 inches</li>
+                    </ul>
+                    <p><strong>What will happen to the volume of the right rectangular prism if the height is increased by 4?</strong></p>
+                    <div class="multiple-choice">
+                        <label><input type="radio" name="q23" value="a"> A. The new volume will be 4 times the original volume.</label>
+                        <label><input type="radio" name="q23" value="b"> B. The new volume will be 11 times the original volume.</label>
+                        <label><input type="radio" name="q23" value="c"> C. The new volume will be 4 × 7 more than the original volume.</label>
+                        <label><input type="radio" name="q23" value="d"> D. The new volume will be 4 × 20 more than the original volume.</label>
+                    </div>
+                    <div class="feedback"></div>
+                    <button type="button" class="check-btn" onclick="checkAnswer(23)">Check Answer</button>
+                </div>
+
+                <!-- Question 24: Books in Container -->
+                <div class="question" data-question="24">
+                    <h3>Question 24</h3>
+                    <p>Justin is packing a container with books.</p>
+                    <ul>
+                        <li>The dimensions of each book are 8 inches by 6 inches by 2 inches.</li>
+                        <li>The dimensions of the container are 16 inches by 12 inches by 12 inches.</li>
+                        <li>All of the books and the container are rectangular prisms.</li>
+                    </ul>
+                    <p><strong>Part A: How many books can fit in the container if the books are packed so that there is no unused space in the container?</strong></p>
+                    <input type="number" name="q24a" class="answer-input" data-hint="Container volume = 16×12×12 = 2,304. Book volume = 8×6×2 = 96. Divide: 2,304 ÷ 96">
+                    
+                    <p><strong>Part B: Each book weighs 2 pounds. The maximum weight the container can hold is 40 pounds. What is the greatest number of books that can fit in the container without going over the container's weight limit?</strong></p>
+                    <input type="number" name="q24b" class="answer-input" data-hint="40 pounds ÷ 2 pounds per book = ?">
+                    <div class="feedback"></div>
+                </div>
+
+                <!-- Question 25: Bean Plant Growth -->
+                <div class="question" data-question="25">
+                    <h3>Question 25</h3>
+                    <p>Cindy grew a bean plant. She recorded the plant's height, in centimeters, each week. The plant grew about the same amount each week.</p>
+                    <p>She did not record the height of the plant for week 3.</p>
+                    <table>
+                        <tr>
+                            <th>Week</th>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <th>Height of Plant (cm)</th>
+                            <td>0.75</td>
+                            <td>1.50</td>
+                            <td>?</td>
+                            <td>3.00</td>
+                            <td>3.75</td>
+                        </tr>
+                    </table>
+                    <p><strong>Select the most reasonable height, in millimeters, of the bean plant for week 3.</strong></p>
+                    <div class="multiple-choice">
+                        <label><input type="radio" name="q25" value="a"> A. 0.02 mm</label>
+                        <label><input type="radio" name="q25" value="b"> B. 2 mm</label>
+                        <label><input type="radio" name="q25" value="c"> C. 2.25 mm</label>
+                        <label><input type="radio" name="q25" value="d"> D. 22.5 mm</label>
+                    </div>
+                    <div class="feedback"></div>
+                    <button type="button" class="check-btn" onclick="checkAnswer(25)">Check Answer</button>
+                </div>
+
+                <!-- Question 26: Shape Classification -->
+                <div class="question" data-question="26">
+                    <h3>Question 26</h3>
+                    <p><strong>Determine which category each polygon belongs to. Select all boxes that apply. Shapes may belong to more than one category. If the polygon is not a square, parallelogram, or quadrilateral, select None of These.</strong></p>
+                    <div class="shape-table">
+                        <table>
+                            <tr>
+                                <th>Shape</th>
+                                <th>Square</th>
+                                <th>Parallelogram</th>
+                                <th>Quadrilateral</th>
+                                <th>None of These</th>
+                            </tr>
+                            <tr>
+                                <td>Trapezoid</td>
+                                <td><input type="checkbox" name="q26a_square"></td>
+                                <td><input type="checkbox" name="q26a_para"></td>
+                                <td><input type="checkbox" name="q26a_quad"></td>
+                                <td><input type="checkbox" name="q26a_none"></td>
+                            </tr>
+                            <tr>
+                                <td>Hexagon</td>
+                                <td><input type="checkbox" name="q26b_square"></td>
+                                <td><input type="checkbox" name="q26b_para"></td>
+                                <td><input type="checkbox" name="q26b_quad"></td>
+                                <td><input type="checkbox" name="q26b_none"></td>
+                            </tr>
+                            <tr>
+                                <td>Rhombus</td>
+                                <td><input type="checkbox" name="q26c_square"></td>
+                                <td><input type="checkbox" name="q26c_para"></td>
+                                <td><input type="checkbox" name="q26c_quad"></td>
+                                <td><input type="checkbox" name="q26c_none"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="feedback"></div>
+                    <button type="button" class="check-btn" onclick="checkAnswer(26)">Check Answer</button>
+                </div>
+
+                <!-- Question 27: Decimal Comparison Symbol -->
+                <div class="question" data-question="27">
+                    <h3>Question 27</h3>
+                    <p><strong>Enter the symbol (>, <, or =) that correctly completes this comparison.</strong></p>
+                    <p>10,129.603 ___ 10,129.63</p>
+                    <input type="text" name="q27" class="answer-input" maxlength="1" data-hint="Compare digit by digit from left to right. Look at the hundredths place: 0 vs 3">
+                    <div class="feedback"></div>
+                </div>
+
+                <!-- Question 28: Polygon Shape -->
+                <div class="question" data-question="28">
+                    <h3>Question 28</h3>
+                    <p><strong>Which equation has the same unknown value as 405 ÷ 15 = □?</strong></p>
+                    <div class="multiple-choice">
+                        <label><input type="radio" name="q28" value="a"> A. 405 × □ = 15</label>
+                        <label><input type="radio" name="q28" value="b"> B. □ ÷ 405 = 15</label>
+                        <label><input type="radio" name="q28" value="c"> C. 15 × □ = 405</label>
+                        <label><input type="radio" name="q28" value="d"> D. □ + 15 = 405</label>
+                    </div>
+                    <div class="feedback"></div>
+                    <button type="button" class="check-btn" onclick="checkAnswer(28)">Check Answer</button>
+                </div>
+
+                <div class="submit-section">
+                    <button type="button" id="submitTest" onclick="submitTest()">Submit Test</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="resultsContainer" style="display: none;">
+            <h2>Test Complete!</h2>
+            <p>Thank you for completing the test. Your results have been recorded.</p>
+            <div id="scoreDisplay"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
